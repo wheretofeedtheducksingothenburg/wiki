@@ -1,0 +1,34 @@
+---
+# yamllint disable rule:line-length
+# yamllint disable rule:truthy
+
+name: Sync Wiki Across The Org
+
+on:
+  workflow_dispatch:
+  gollum
+
+jobs:
+
+  validate_wiki_content:
+    name: Validate wiki content
+    runs-on: ubuntu-latest
+
+    continue-on-error: false
+
+    steps:
+
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }}.wiki
+          path: wiki
+          fetch-depth: 0
+
+      - name: Output the results
+        id: output_results
+        shell: bash
+        run: |
+            ls -lahR .
+
+...
