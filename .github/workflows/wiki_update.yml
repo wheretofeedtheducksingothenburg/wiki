@@ -6,7 +6,7 @@ name: Sync Wiki Across The Org
 
 on:
   workflow_dispatch:
-  gollum
+  gollum:
 
 jobs:
 
